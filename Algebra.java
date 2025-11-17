@@ -20,7 +20,9 @@ public class Algebra {
    		System.out.println(mod(120,6));  // 120 % 6
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(263169));
-   		System.out.println(sqrt(76123)); 
+   		System.out.println(sqrt(76123));
+		System.out.println(sqrt(0));
+		System.out.println(sqrt(1));
 	}  
 
 	// Returns x1 + x2
@@ -133,13 +135,13 @@ public class Algebra {
 
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
-		if (x < 0) {	return -1;	}
 		
-		for (int i = 0; i < x; i++) {
+		// i <= x so that 0 and 1 are caught
+		for (int i = 0; i <= x; i++) {
 			if (times(i, i) == x) {	return i;	}
 			else if (times(i, i) > x) {	return minus(i, 1);	}
 		}
 
-		return -1;	// If it reaches here i must be negative, 
+		return -1;	// If it reaches here i must be negative, return -1 as a default fail
 	}	  	  
 }
